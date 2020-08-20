@@ -1,6 +1,6 @@
 {
   "name": "fastify-socket.io",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Fastify plugin for socket.io",
   "main": "index.js",
   "types": "index.d.ts",
@@ -12,6 +12,10 @@
     "unit": "tap --100 test/*.test.js"
   },
   "author": "Alessandro Magionami - @alemagio",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alemagio/fastify-socket.io.git"
+  },
   "license": "MIT",
   "dependencies": {
     "fastify-plugin": "^2.3.0",
