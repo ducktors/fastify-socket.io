@@ -2,7 +2,7 @@
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)  ![CI workflow](https://github.com/alemagio/fastify-socket.io/workflows/CI%20workflow/badge.svg)
 
-`fastify-cors` enables the use of [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) in a Fastify application.
+`fastify-socket.io` enables the use of [Socket.io](https://socket.io/) in a Fastify application.
 
 Supports Fastify versions `3.x`
 
@@ -21,7 +21,7 @@ fastify.register(require('fastify-socket.io'), {
 })
 
 fastify.get('/', (req, reply) => {
-  reply.io.emit('hello')
+  fastify.io.emit('hello')
 })
 
 fastify.listen(3000)
