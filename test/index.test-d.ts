@@ -3,18 +3,24 @@ import socketioServer from '..'
 import { expectType, expectAssignable } from 'tsd'
 import { ServerOptions } from 'socket.io'
 
-const app = fastify()
+try {
+  const app = fastify()
 
-app.register(socketioServer)
+  await app.ready()
 
-app.io.emit('test')
+  await app.register(socketioServer)
 
-expectType<SocketIO.Server>(app.io)
+  app.io.emit('test')
 
-expectAssignable<ServerOptions>({
-  path: '/test',
-  serveClient: false,
-  pingInterval: 10000,
-  pingTimeout: 5000,
-  cookie: false
-})
+  expectType<SocketIO.Server>(app.io)
+
+  expectAssignable<ServerOptions>({
+    path: '/test',
+    serveClient: false,
+    pingInterval: 10000,
+    pingTimeout: 5000,
+    cookie: false
+  })
+} catch (err) {
+  console.error(err)
+}

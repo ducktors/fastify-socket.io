@@ -6,7 +6,7 @@
   "types": "index.d.ts",
   "scripts": {
     "lint": "standard && npm run lint:typescript",
-    "lint:typescript": "standard --parser @typescript-eslint/parser --plugin @typescript-eslint/eslint-plugin test/types/*.ts",
+    "lint:typescript": "ts-standard",
     "test": "npm run lint && npm run unit && npm run typescript",
     "typescript": "tsd",
     "unit": "tap --100 test/*.test.js"
@@ -29,6 +29,7 @@
     "fastify": "^3.2.1",
     "standard": "^14.3.4",
     "tap": "^14.10.8",
+    "ts-standard": "^9.0.0",
     "tsd": "^0.13.1",
     "typescript": "^3.9.7"
   },
@@ -41,5 +42,10 @@
   },
   "files": [
     "index.d.ts"
-  ]
+  ],
+  "ts-standard": {
+    "ignore": [
+      "examples"
+    ]
+  }
 }

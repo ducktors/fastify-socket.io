@@ -2,4 +2,3 @@ esm: false
 ts: false
 jsx: false
 coverage: true
-flow: true
