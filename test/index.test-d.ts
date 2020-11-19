@@ -14,7 +14,7 @@ try {
 
   expectType<SocketIO.Server>(app.io)
 
-  expectAssignable<ServerOptions>({
+  expectAssignable<Partial<ServerOptions>>({
     path: '/test',
     serveClient: false,
     pingInterval: 10000,

@@ -7,5 +7,5 @@ declare module 'fastify' {
   }
 }
 
-declare const socketioServer: FastifyPlugin<ServerOptions>
+declare const socketioServer: FastifyPlugin<Partial<ServerOptions>>
 export default socketioServer
