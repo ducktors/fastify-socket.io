@@ -30,6 +30,10 @@ For more details see [examples](https://github.com/alemagio/fastify-socket.io/tr
 
 You can use it as is without passing any option, or you can configure it as explained by Socket.io [doc](https://socket.io/docs/server-api/).
 
+### Hook
+
+The plugin also adds an `onClose` hook which closes the socket server when the `fastify` instance is closed.
+
 ## Acknowledgements
 
 The code is a port for Fastify of [`socket.io`](https://github.com/socketio/socket.io).
