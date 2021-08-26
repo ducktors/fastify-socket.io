@@ -1,4 +1,4 @@
-import { FastifyPluginAsync, FastifyServerOptions } from 'fastify'
+import { FastifyPluginAsync } from 'fastify'
 import * as SocketIO from 'socket.io'
 
 declare module 'fastify' {
@@ -7,5 +7,5 @@ declare module 'fastify' {
   }
 }
 
-export const socketioServer: FastifyPluginAsync<Partial<FastifyServerOptions>>
+export const socketioServer: FastifyPluginAsync<Partial<SocketIO.ServerOptions>>
 export default socketioServer
