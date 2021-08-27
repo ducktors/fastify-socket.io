@@ -3,7 +3,7 @@ import socketioServer from '..'
 import { expectType, expectAssignable } from 'tsd'
 import { Server, ServerOptions } from 'socket.io'
 
-const test = async () => {
+const test = async (): Promise<void> => {
   try {
     const app = fastify()
 
@@ -27,4 +27,4 @@ const test = async () => {
   }
 }
 
-test();
+await test()
