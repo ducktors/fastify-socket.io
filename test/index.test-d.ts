@@ -1,7 +1,7 @@
 import fastify from 'fastify'
 import socketioServer from '..'
 import { expectType, expectAssignable } from 'tsd'
-import { ServerOptions } from 'socket.io'
+import { Server, ServerOptions } from 'socket.io'
 
 try {
   const app = fastify()
@@ -12,7 +12,7 @@ try {
 
   app.io.emit('test')
 
-  expectType<SocketIO.Server>(app.io)
+  expectType<Server>(app.io)
 
   expectAssignable<Partial<ServerOptions>>({
     path: '/test',
