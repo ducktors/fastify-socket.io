@@ -1,11 +1,11 @@
 import { FastifyPluginAsync } from 'fastify'
-import * as SocketIO from 'socket.io'
+import { Server, ServerOptions } from 'socket.io'
 
 declare module 'fastify' {
   interface FastifyInstance {
-    io: SocketIO.Server
+    io: Server
   }
 }
 
-export const socketioServer: FastifyPluginAsync<Partial<SocketIO.ServerOptions>>
+export const socketioServer: FastifyPluginAsync<Partial<ServerOptions>>
 export default socketioServer
