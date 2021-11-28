@@ -14,6 +14,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Install Dependencies
-      run: npm install socket.io & npm ci
+      run: npm install socket.io & npm install --ignore-scripts
     - name: Test
       run: npm run test
