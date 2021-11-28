@@ -8,7 +8,7 @@ Supports Fastify versions `3.x`
 
 ## Install
 ```
-npm i fastify-socket.io
+npm i fastify-socket.io socket.io
 ```
 
 ## Usage
