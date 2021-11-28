@@ -9,7 +9,7 @@ test('should register the correct decorator', async t => {
 
   await app.ready()
 
-  t.deepEqual(app.io, require('socket.io')(app.server))
+  t.same(app.io, require('socket.io')(app.server))
 })
 
 test('should register the correct decorator passing options', async t => {
@@ -27,7 +27,7 @@ test('should register the correct decorator passing options', async t => {
 
   await app.ready()
 
-  t.deepEqual(
+  t.same(
     app.io,
     require('socket.io')(app.server, {
       path: '/test',
@@ -47,7 +47,6 @@ test('should close socket server on fastify close', async t => {
   const PORT = 3030
   const server = require('http').Server()
   server.on('error', (e) => {
-    console.log(e)
     if (e.code === 'EADDRINUSE') {
       t.fail('Port was not free!')
       setTimeout(() => {

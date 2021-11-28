@@ -18,22 +18,19 @@
   },
   "license": "MIT",
   "dependencies": {
-    "fastify-plugin": "^3.0.0",
-    "socket.io": "^4.0.1"
+    "fastify-plugin": "^3.0.0"
   },
   "devDependencies": {
-    "@types/component-emitter": "^1.2.10",
-    "@types/node": "^15.0.0",
-    "@types/socket.io": "^2.1.11",
+    "@types/node": "^16.11.10",
     "@typescript-eslint/eslint-plugin": "^4.2.0",
     "@typescript-eslint/parser": "^4.2.0",
-    "fastify": "^3.8.0",
+    "fastify": "^3.24.0",
     "fastify-tsconfig": "^1.0.1",
-    "standard": "^16.0.3",
-    "tap": "^15.0.5",
+    "standard": "^16.0.4",
+    "tap": "^15.1.5",
     "ts-standard": "^10.0.0",
-    "tsd": "^0.14.0",
-    "typescript": "^4.1.2"
+    "tsd": "^0.19.0",
+    "typescript": "^4.5.2"
   },
   "keywords": [
     "fastify",
@@ -49,5 +46,8 @@
     "ignore": [
       "examples"
     ]
+  },
+  "peerDependencies": {
+    "socket.io": "^4.4.0"
   }
 }
