@@ -13,8 +13,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Clear dependencies
-      run: rm -rf node_modules
+    - name: Clean node_modules
+      run: npm install rimraf -g && rimraf node_modules
     - name: Install Dependencies
       run: npm install socket.io & npm install --ignore-scripts
     - name: Test
