@@ -16,7 +16,7 @@ app.get('/', async (req, reply) => {
 app.ready(err => {
   if (err) throw err
 
-  app.io.on('connect', (socket) => console.info('Socket connected!', socket.id))
+  app.io.on('connection', (socket) => console.info('Socket connected!', socket.id))
 })
 
 app.listen(3000)
