@@ -8,4 +8,4 @@ module.exports = fp(async function (fastify, opts) {
     fastify.io.close()
     done()
   })
-}, { fastify: '3.x' })
+}, { fastify: '4.x' })
