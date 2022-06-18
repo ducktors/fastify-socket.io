@@ -1,6 +1,6 @@
 {
   "name": "@types/fastify-socket.io",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Types for fastify-socket.io",
   "scripts": {
     "test": "tsd"
