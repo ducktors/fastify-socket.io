@@ -8,4 +8,4 @@ module.exports = fp(async function (fastify, opts) {
     fastify.io.close()
     done()
   })
-}, { fastify: '4.x', name: 'fastify-socket.io' })
+}, { fastify: '>=3.24.x', name: 'fastify-socket.io' })
