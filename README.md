@@ -38,7 +38,7 @@ The plugin also adds an `onClose` hook which closes the socket server when the `
 
 From v4 types will no longer be included in the plugin package but will need to be installed separately:
 ```
-npm i fastify-socket.io socket.io
+npm i -D types-fastify-socket.io
 ```
 
 This is necessary to allow, eventually, the developer to be able to define custom types and make use of the `socket.io` new types system ([doc](https://socket.io/docs/v4/typescript/)).
