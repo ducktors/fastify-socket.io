@@ -1,5 +1,5 @@
 import fastify from 'fastify'
-import socketioServer from '../..'
+import socketioServer from 'fastify-socket.io'
 import { join } from 'path'
 const { readFile } = require('fs').promises
 
@@ -16,7 +16,7 @@ app.get('/', async (req, reply) => {
 app.ready(err => {
   if (err) throw err
 
-  app.io.on('connection', (socket) => console.info('Socket connected!', socket.id))
+  app.io.on('connection', (socket: any) => console.info('Socket connected!', socket.id))
 })
 
 app.listen(3000)

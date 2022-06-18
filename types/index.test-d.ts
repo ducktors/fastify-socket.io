@@ -1,5 +1,5 @@
 import fastify from 'fastify'
-import socketioServer from '..'
+import socketioServer from '.'
 import { expectType, expectAssignable } from 'tsd'
 import { Server, ServerOptions } from 'socket.io'
 

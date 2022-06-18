@@ -1,0 +1,22 @@
+{
+  "name": "example-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node server.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/fastify-socket.io": "*",
+    "@types/node": "^16.11.10",
+    "fastify": "^4.0.1",
+    "fastify-tsconfig": "^1.0.1",
+    "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "fastify-socket.io": "*",
+    "socket.io": "^4.5.1"
+  }
+}
