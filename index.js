@@ -5,7 +5,7 @@ const socketIo = require('socket.io');
 
 
 module.exports = fp(async function (fastify, opts) {
-  fastify.decorate('io', new socketIo.SocketIOServer(fastify.server, opts))
+  fastify.decorate('io', new socketIo.Server(fastify.server, opts))
   fastify.addHook('onClose', (fastify, done) => {
     fastify.io.close()
     done()
