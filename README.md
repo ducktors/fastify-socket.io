@@ -24,7 +24,7 @@ fastify.get('/', (req, reply) => {
   fastify.io.emit('hello')
 })
 
-fastify.listen(3000)
+fastify.listen({ port: 3000 })
 ```
 For more details see [examples](https://github.com/alemagio/fastify-socket.io/tree/master/examples)
 

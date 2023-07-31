@@ -19,4 +19,4 @@ app.ready(err => {
   app.io.on('connection', (socket: any) => console.info('Socket connected!', socket.id))
 })
 
-app.listen(3000)
+app.listen({ port: 3000 })
