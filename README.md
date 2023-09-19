@@ -1,4 +1,4 @@
-# @ducktors/fastify-socket.io
+# fastify-socket.io
 
 ![CI workflow](https://github.com/ducktors/fastify-socket.io/workflows/CI%20workflow/badge.svg)
 
