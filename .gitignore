@@ -55,7 +55,8 @@ package-lock.json
 .idea
 
 # temporary/work/output folders
-# build/
+build/
 out/
 temp/
 tmp/
+dist/
