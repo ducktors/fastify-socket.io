@@ -1,6 +1,7 @@
 # fastify-socket.io
 
-![CI workflow](https://github.com/ducktors/fastify-socket.io/workflows/CI%20workflow/badge.svg)
+[![CI](https://github.com/ducktors/fastify-socket.io/actions/workflows/ci.yml/badge.svg)](https://github.com/ducktors/fastify-socket.io/actions/workflows/ci.yml) [![npm](https://img.shields.io/npm/v/fastify-socket.io)](https://www.npmjs.com/package/fastify-socket.io)
+
 
 `fastify-socket.io` enables the use of [Socket.io](https://socket.io/) in a Fastify application.
 
