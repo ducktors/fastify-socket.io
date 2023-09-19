@@ -1,6 +1,7 @@
 # fastify-socket.io
 
-![CI workflow](https://github.com/ducktors/fastify-socket.io/workflows/CI%20workflow/badge.svg)
+[![CI](https://github.com/ducktors/fastify-socket.io/actions/workflows/ci.yml/badge.svg)](https://github.com/ducktors/fastify-socket.io/actions/workflows/ci.yml) [![npm](https://img.shields.io/npm/v/fastify-socket.io)](https://www.npmjs.com/package/fastify-socket.io) [![Coverage Status](https://coveralls.io/repos/github/ducktors/fastify-socket.io/badge.svg?branch=master)](https://coveralls.io/github/ducktors/fastify-socket.io?branch=master) [![Maintainability](https://api.codeclimate.com/v1/badges/8415332abe3ff865131d/maintainability)](https://codeclimate.com/github/ducktors/fastify-socket.io/maintainability)
+
 
 `fastify-socket.io` enables the use of [Socket.io](https://socket.io/) in a Fastify application.
 
