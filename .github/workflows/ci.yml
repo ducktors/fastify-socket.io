@@ -13,25 +13,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  commitlint:
-    name: Commit
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Remove tsconfig.json
-        run: rm tsconfig.json || true # https://github.com/wagoid/commitlint-github-action/issues/560#issuecomment-1277659864
-
-      - name: Check commit message
-        uses: wagoid/commitlint-github-action@v5
-        with:
-          configFile: commitlint.config.js
-          failOnWarnings: false
-          helpURL: https://github.com/ducktors/turborepo-remote-cache#how-to-commit
-
   build:
     runs-on: ${{ matrix.os }}
     name: Build
@@ -157,7 +138,7 @@ jobs:
           path-to-lcov: ./coverage/lcov.info
 
       - name: CodeClimate
-        uses: paambaati/codeclimate-action@v3.2.0
+        uses: paambaati/codeclimate-action@v5.0.0
         continue-on-error: true
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CODECLIMATE_TEST_REPORTER_ID }}
