@@ -22,14 +22,19 @@ jobs:
         # os: [ubuntu-latest, windows-latest, macos-latest]
         os: [ubuntu-latest, macos-latest]
     steps:
-      - uses: actions/checkout@v4
+      - name: Harden Runner
+        uses: step-security/harden-runner@8ca2b8b2ece13480cda6dacd3511b49857a23c09 # v2.5.1
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
         name: Checkout
       - name: Use Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3.8.1
         with:
           node-version: ${{ matrix.node-version }}
 
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@0b715c7ebbf3cf2174d1386336c5f6d3d8d5504a # v2.3.0
         name: Install pnpm
         with:
           version: 8
@@ -40,7 +45,7 @@ jobs:
         run: |
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
         name: Setup pnpm cache
         with:
           path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
@@ -58,15 +63,20 @@ jobs:
     runs-on: macos-latest
     name: Lint
     steps:
-      - uses: actions/checkout@v4
+      - name: Harden Runner
+        uses: step-security/harden-runner@8ca2b8b2ece13480cda6dacd3511b49857a23c09 # v2.5.1
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
         name: Checkout
 
       - name: Use Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3.8.1
         with:
           node-version: 20
 
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@0b715c7ebbf3cf2174d1386336c5f6d3d8d5504a # v2.3.0
         name: Install pnpm
         with:
           version: 8
@@ -77,7 +87,7 @@ jobs:
         run: |
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
         name: Setup pnpm cache
         with:
           path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
@@ -100,13 +110,18 @@ jobs:
         os: [ubuntu-latest, macos-latest]
     name: Test
     steps:
-      - uses: actions/checkout@v4
+      - name: Harden Runner
+        uses: step-security/harden-runner@8ca2b8b2ece13480cda6dacd3511b49857a23c09 # v2.5.1
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
       - name: Use Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3.8.1
         with:
           node-version: ${{ matrix.node-version }}
 
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@0b715c7ebbf3cf2174d1386336c5f6d3d8d5504a # v2.3.0
         with:
           version: 8
 
@@ -116,7 +131,7 @@ jobs:
         run: |
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
         name: Setup pnpm cache
         with:
           path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
@@ -134,13 +149,13 @@ jobs:
         run: pnpm dlx nyc report --reporter=lcov --temp-directory=coverage
 
       - name: Coveralls
-        uses: coverallsapp/github-action@master
+        uses: coverallsapp/github-action@09b709cf6a16e30b0808ba050c7a6e8a5ef13f8d # master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path-to-lcov: ./coverage/lcov.info
 
       - name: CodeClimate
-        uses: paambaati/codeclimate-action@v5.0.0
+        uses: paambaati/codeclimate-action@4cace242c6e0a2dd554bbb3cc12c58047d8af3e5 # v5.0.0
         continue-on-error: true
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CODECLIMATE_TEST_REPORTER_ID }}
