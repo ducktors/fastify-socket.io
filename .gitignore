@@ -60,3 +60,4 @@ out/
 temp/
 tmp/
 dist/
+junit.xml
