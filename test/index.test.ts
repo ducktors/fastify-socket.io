@@ -1,4 +1,5 @@
-import { expect, test } from "vitest";
+import assert from "node:assert";
+import { test } from "node:test";
 import fastify from "fastify";
 import { Server } from "socket.io";
 import { Server as HttpServer } from "node:http";
@@ -13,23 +14,24 @@ test("should register the correct decorator", async () => {
 
   await app.ready();
 
-  expect(app.hasDecorator("io")).toBe(true);
-  expect(app.io).toBeInstanceOf(Server);
+  assert.strictEqual(app.hasDecorator("io"), true);
+  assert.ok(app.io instanceof Server);
 });
 
 test("should close socket server on fastify close", async () => {
-  expect.hasAssertions();
-
   const PORT = 3030;
   const server = new HttpServer();
   server.on("error", (e: any) => {
     if (e.code === "EADDRINUSE") {
       // Should not be here
-      expect(false).toBe(true);
-      setTimeout(() => {
-        server.close();
-        server.listen(PORT);
-      }, 1000);
+      try {
+        assert.fail("Port is already in use");
+      } catch (e) {
+        setTimeout(() => {
+          server.close();
+          server.listen(PORT);
+        }, 1000);
+      }
     }
   });
 
@@ -53,5 +55,5 @@ test("should close socket server on fastify close", async () => {
   await once(server, "listening");
 
   server.close();
-  expect(true).toBe(true);
+  assert.ok(true);
 });

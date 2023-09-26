@@ -1,6 +1,6 @@
 name: Test
 
-on: ['push', 'pull_request']
+on: ["push", "pull_request"]
 
 env:
   TURBO_API: https://eu.trrc.ducktors.dev
@@ -54,10 +54,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Run tests
-        run: pnpm test:ci
-
-      - name: Convert json coverage report to lcov
-        run: pnpm dlx nyc report --reporter=lcov --temp-directory=coverage
+        run: pnpm test:coverage
 
       - name: Coveralls
         uses: coverallsapp/github-action@3dfc5567390f6fa9267c0ee9c251e4c8c3f18949 # master
