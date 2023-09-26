@@ -24,7 +24,6 @@
     "@changesets/cli": "^2.26.2",
     "@ducktors/tsconfig": "^0.1.1",
     "@types/node": "^16.18.39",
-    "@vitest/coverage-istanbul": "^0.28.5",
     "c8": "^8.0.1",
     "fastify": "^4.21.0",
     "husky": "^8.0.3",
@@ -33,8 +32,7 @@
     "socket.io": "^4.7.1",
     "tsup": "^6.7.0",
     "tsx": "^3.13.0",
-    "typescript": "^4.9.5",
-    "vitest": "^0.28.5"
+    "typescript": "^4.9.5"
   },
   "files": [
     "dist"
