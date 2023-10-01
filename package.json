@@ -15,6 +15,7 @@
     "test:watch": "tsx --watch --test ./test/*.ts",
     "test:coverage": "c8 --all --src src --reporter lcov --reporter text tsx --test ./test/*.ts"
   },
+  "repository": "alemagio/fastify-socket.io",
   "dependencies": {
     "fastify-plugin": "^4.5.1",
     "tslib": "^2.6.1"
