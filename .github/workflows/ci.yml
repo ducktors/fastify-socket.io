@@ -4,7 +4,7 @@ on:
   pull_request:
 
 env:
-  TURBO_API: https://eu.trrc.ducktors.dev
+  TURBO_API: ${{ vars.TURBO_API }}
   TURBO_TEAM: team_ducktors
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
