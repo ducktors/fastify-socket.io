@@ -67,7 +67,7 @@ jobs:
           path-to-lcov: ./coverage/lcov.info
 
       - name: CodeClimate
-        uses: paambaati/codeclimate-action@4cace242c6e0a2dd554bbb3cc12c58047d8af3e5 # v5.0.0
+        uses: paambaati/codeclimate-action@a1831d7162ea1fbc612ffe5fb3b90278b7999d59 # v5.0.0
         continue-on-error: true
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CODECLIMATE_TEST_REPORTER_ID }}
