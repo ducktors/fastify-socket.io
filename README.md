@@ -6,6 +6,7 @@
 `fastify-socket.io` enables the use of [Socket.io](https://socket.io/) in a Fastify application.
 
 Supports Fastify versions `4.x`
+Supports socket.io version `4.x`
 
 ## Install
 
@@ -35,7 +36,19 @@ For more details see [examples](https://github.com/ducktors/fastify-socket.io/tr
 
 You can use it as is without passing any option, or you can configure it as explained by Socket.io [doc](https://socket.io/docs/server-api/).
 
-### Hook
+### Hooks
+
+By default the plugin will add a `preClose` hook that disconnects [all the local sockets](https://socket.io/docs/v4/server-api/#serverdisconnectsocketsclose) in order to close correctly the fastify server. In order to change this behaviour you can use `preClose` option:
+
+```javascript
+await fastify.register(require('fastify-socket.io'), {
+  preClose: (done) => {
+    // do other things
+    fastify.io.local.disconnectSockets(true);
+    done();
+  }
+})
+```
 
 The plugin also adds an `onClose` hook which closes the socket server when the `fastify` instance is closed.
 
