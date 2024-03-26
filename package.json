@@ -15,7 +15,7 @@
     "test:watch": "tsx --watch --test ./test/*.ts",
     "test:coverage": "c8 --all --src src --reporter lcov --reporter text tsx --test ./test/*.ts"
   },
-"repository": {
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/ducktors/fastify-socket.io.git"
   },
@@ -33,7 +33,8 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
     "rome": "11.0.0",
-    "socket.io": "^4.7.1",
+    "socket.io": "^4.7.4",
+    "socket.io-client": "^4.7.4",
     "tsup": "^6.7.0",
     "tsx": "^3.13.0",
     "typescript": "^4.9.5"
@@ -42,6 +43,7 @@
     "dist"
   ],
   "peerDependencies": {
-    "fastify": "4.x.x"
+    "fastify": "4.x.x",
+    "socket.io": ">=4"
   }
 }
