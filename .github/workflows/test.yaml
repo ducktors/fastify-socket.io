@@ -26,17 +26,17 @@ jobs:
         os: [ubuntu-latest, macos-latest]
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
+        uses: step-security/harden-runner@f086349bfa2bd1361f7909c78558e816508cdc10 # v2.8.0
         with:
           egress-policy: audit
 
-      - uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
+      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
       - name: Use Node.js
         uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
         with:
           node-version: ${{ matrix.node-version }}
 
-      - uses: pnpm/action-setup@a3252b78c470c02df07e9d59298aecedc3ccdd6d # v3.0.0
+      - uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
         with:
           version: 8
 
@@ -61,13 +61,13 @@ jobs:
         run: pnpm test:coverage
 
       - name: Coveralls
-        uses: coverallsapp/github-action@3dfc5567390f6fa9267c0ee9c251e4c8c3f18949 # master
+        uses: coverallsapp/github-action@643bc377ffa44ace6394b2b5d0d3950076de9f63 # master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path-to-lcov: ./coverage/lcov.info
 
       - name: CodeClimate
-        uses: paambaati/codeclimate-action@a1831d7162ea1fbc612ffe5fb3b90278b7999d59 # v5.0.0
+        uses: paambaati/codeclimate-action@b74bb25d2074a4bc16bd06fffc1b299c07b1f886 # v6.0.0
         continue-on-error: true
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CODECLIMATE_TEST_REPORTER_ID }}
