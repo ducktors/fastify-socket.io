@@ -36,7 +36,7 @@
     "socket.io": "^4.7.4",
     "socket.io-client": "^4.7.4",
     "tsup": "^6.7.0",
-    "tsx": "^3.13.0",
+    "tsx": "^4.13.0",
     "typescript": "^4.9.5"
   },
   "files": [
