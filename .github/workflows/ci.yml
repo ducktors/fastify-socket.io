@@ -18,7 +18,7 @@ jobs:
     name: Build
     strategy:
       matrix:
-        node-version: [18.x, 20.x]
+        node-version: [18.x, 20.x, 22.x]
         # os: [ubuntu-latest, windows-latest, macos-latest]
         os: [ubuntu-latest, macos-latest]
     steps:
@@ -37,7 +37,7 @@ jobs:
       - uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
         name: Install pnpm
         with:
-          version: 8
+          version: 9
 
       - name: Get pnpm store directory
         id: pnpm-cache
@@ -79,7 +79,7 @@ jobs:
       - uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
         name: Install pnpm
         with:
-          version: 8
+          version: 9
 
       - name: Get pnpm store directory
         id: pnpm-cache
