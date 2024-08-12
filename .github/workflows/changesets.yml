@@ -3,10 +3,15 @@ name: Changesets
 on:
   push:
     branches:
-      - main
+      - master
 
 permissions:
   contents: read
+
+env:
+  GH_TOKEN: ${{ secrets.DUCKTORS_PAT }}
+  GITHUB_TOKEN: ${{ secrets.DUCKTORS_PAT }}
+  NPM_TOKEN: ${{ secrets.MAGIO_NPM_TOKEN }}
 
 jobs:
   release:
@@ -19,6 +24,11 @@ jobs:
           egress-policy: audit
 
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+        name: Checkout
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+        
       - name: Use Node.js
         uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4.0.3
         with:
@@ -55,6 +65,3 @@ jobs:
           createGithubReleases: true
           commit: "chore: version release"
           title: "Version Release"
-        env:
-          GITHUB_TOKEN: ${{ secrets.DUCKTORS_PAT }}
-          NPM_TOKEN: ${{ secrets.DUCKTORS_NPM_TOKEN }}
