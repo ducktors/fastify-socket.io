@@ -5,8 +5,8 @@
 
 `fastify-socket.io` enables the use of [Socket.io](https://socket.io/) in a Fastify application.
 
-Supports Fastify versions `4.x`
-Supports socket.io version `4.x`
+Supports Fastify versions `>=4`
+Supports socket.io version `>=4`
 
 ## Install
 
