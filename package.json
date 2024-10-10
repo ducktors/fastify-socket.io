@@ -29,7 +29,7 @@
     "@ducktors/tsconfig": "^0.1.1",
     "@types/node": "^16.18.39",
     "c8": "^8.0.1",
-    "fastify": "^4.21.0",
+    "fastify": "^5.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
     "rome": "11.0.0",
@@ -43,7 +43,7 @@
     "dist"
   ],
   "peerDependencies": {
-    "fastify": "4.x.x",
+    "fastify": ">=4",
     "socket.io": ">=4"
   }
 }
