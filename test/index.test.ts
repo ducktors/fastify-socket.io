@@ -8,6 +8,8 @@ import { io } from 'socket.io-client'
 
 import plugin from '../src'
 
+const PORT = 3030
+
 class Defer {
   promise: Promise<any>
   reject!: Function
@@ -33,7 +35,6 @@ test('should register the correct decorator', async () => {
 })
 
 test('should close socket server on fastify close', async () => {
-  const PORT = 3030
   const server = new HttpServer()
   server.on('error', (e: any) => {
     if (e.code === 'EADDRINUSE') {
@@ -73,14 +74,13 @@ test('should close socket server on fastify close', async () => {
 })
 
 test('should close socket server and connected sockets before fastify close', async () => {
-  const PORT = 3030
   const app = fastify()
   await app.register(plugin)
 
   await app.ready()
   await app.listen({ port: PORT })
 
-  const socket = io('http://localhost:3030', {
+  const socket = io(`http://localhost:${PORT}`, {
     transports: ['websocket'],
   })
 
@@ -88,8 +88,8 @@ test('should close socket server and connected sockets before fastify close', as
     assert.fail('Client unable to connect')
   })
 
-  await once(socket, 'connect')
-  const promise = once(socket, 'disconnect')
+  await once(socket as any, 'connect')
+  const promise = once(socket as any, 'disconnect')
   await app.close()
   await promise
   assert.ok(true)
@@ -97,11 +97,10 @@ test('should close socket server and connected sockets before fastify close', as
 
 test('should close socket server and connected sockets before fastify close with custom preClose fn', async () => {
   const defer = new Defer()
-  const PORT = 3030
   const app = fastify()
   await app.register(plugin, {
     preClose: (done) => {
-      ;(app as any).io.local.disconnectSockets(true)
+      (app as any).io.local.disconnectSockets(true)
       defer.resolve([done])
       done()
     },
@@ -110,7 +109,7 @@ test('should close socket server and connected sockets before fastify close with
   await app.ready()
   await app.listen({ port: PORT })
 
-  const socket = io('http://localhost:3030', {
+  const socket = io(`http://localhost:${PORT}`, {
     transports: ['websocket'],
   })
 
@@ -118,8 +117,8 @@ test('should close socket server and connected sockets before fastify close with
     assert.fail('Client unable to connect')
   })
 
-  await once(socket, 'connect')
-  const promise = once(socket, 'disconnect')
+  await once(socket as any, 'connect')
+  const promise = once(socket as any, 'disconnect')
   await app.close()
   await promise
   const [done] = await defer.promise
