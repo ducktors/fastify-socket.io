@@ -969,8 +969,8 @@ packages:
     resolution: {integrity: sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg==}
     engines: {node: '>=8'}
 
-  find-my-way@7.6.2:
-    resolution: {integrity: sha512-0OjHn1b1nCX3eVbm9ByeEHiscPYiHLfhei1wOUU9qffQkk98wE0Lo8VrVYfSGMgnSnDh86DxedduAnBf4nwUEw==}
+  find-my-way@7.7.0:
+    resolution: {integrity: sha512-+SrHpvQ52Q6W9f3wJoJBbAQULJuNEEQwBvlvYwACDhBTLOTMiQ0HYWh4+vC3OivGP2ENcTI1oKlFA2OepJNjhQ==}
     engines: {node: '>=14'}
 
   find-up@4.1.0:
@@ -3146,7 +3146,7 @@ snapshots:
       avvio: 8.2.1
       fast-content-type-parse: 1.0.0
       fast-json-stringify: 5.7.0
-      find-my-way: 7.6.2
+      find-my-way: 7.7.0
       light-my-request: 5.10.0
       pino: 8.14.1
       process-warning: 2.2.0
@@ -3166,7 +3166,7 @@ snapshots:
     dependencies:
       to-regex-range: 5.0.1
 
-  find-my-way@7.6.2:
+  find-my-way@7.7.0:
     dependencies:
       fast-deep-equal: 3.1.3
       fast-querystring: 1.1.2
