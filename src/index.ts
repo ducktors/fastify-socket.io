@@ -24,7 +24,7 @@ const fastifySocketIO: FastifyPluginAsync<FastifySocketioOptions> = fp(
       done()
     })
   },
-  { fastify: '>=4.x.x', name: 'fastify-socket.io' },
+  { fastify: '>=4.0.0', name: 'fastify-socket.io' },
 )
 
 export default fastifySocketIO
