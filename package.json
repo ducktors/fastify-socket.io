@@ -45,5 +45,11 @@
   "peerDependencies": {
     "fastify": ">=4.0.0",
     "socket.io": ">=4"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "rome"
+    ]
   }
 }
