@@ -1,5 +1,11 @@
 # fastify-socket.io
 
+## 5.1.1
+
+### Patch Changes
+
+- 07737a0: Update Fastify peer dependency to use semantic versioning format
+
 ## 5.1.0
 
 ### Minor Changes
