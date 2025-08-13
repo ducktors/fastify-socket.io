@@ -5,8 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc --noEmit && tsup-node",
-    "format": "rome format --write .",
-    "lint": "rome check .",
+    "format": "biome format --write .",
+    "lint": "biome check .",
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
     "prepublish": "pnpm build",
@@ -24,6 +24,7 @@
     "tslib": "^2.6.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.2.0",
     "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "^2.26.2",
     "@ducktors/tsconfig": "^0.1.1",
@@ -46,10 +47,5 @@
     "fastify": ">=4.0.0",
     "socket.io": ">=4"
   },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild",
-      "rome"
-    ]
-  }
+  "packageManager": "pnpm@10.12.4+sha512.5ea8b0deed94ed68691c9bad4c955492705c5eeb8a87ef86bc62c74a26b037b08ff9570f108b2e4dbd1dd1a9186fea925e527f141c648e85af45631074680184"
 }
