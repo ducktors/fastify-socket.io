@@ -1,5 +1,8 @@
 {
   "extends": "@ducktors/tsconfig",
+  "compilerOptions": {
+    "esModuleInterop": true
+  },
   "include": [
     "**/*.ts"
   ]
