@@ -1,6 +1,6 @@
 {
-  "name": "fastify-socket.io",
-  "version": "5.1.1-beta.0",
+  "name": "@meyubaraj/fastify-socket",
+  "version": "5.1.1-beta.1",
   "private": false,
   "main": "dist/index.js",
   "scripts": {
