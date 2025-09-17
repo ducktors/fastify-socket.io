@@ -1,6 +1,7 @@
 import fastify from 'fastify'
 import assert from 'node:assert'
 import { once } from 'node:events'
+import { EventEmitter } from 'events'
 import { Server as HttpServer } from 'node:http'
 import { test } from 'node:test'
 import { Server } from 'socket.io'
@@ -88,8 +89,8 @@ test('should close socket server and connected sockets before fastify close', as
     assert.fail('Client unable to connect')
   })
 
-  await once(socket, 'connect')
-  const promise = once(socket, 'disconnect')
+  await once(socket as unknown as EventEmitter, 'connect')
+  const promise = once(socket as unknown as EventEmitter, 'disconnect')
   await app.close()
   await promise
   assert.ok(true)
@@ -101,7 +102,7 @@ test('should close socket server and connected sockets before fastify close with
   const app = fastify()
   await app.register(plugin, {
     preClose: (done) => {
-      ;(app as any).io.local.disconnectSockets(true)
+      (app as any).io.local.disconnectSockets(true)
       defer.resolve([done])
       done()
     },
@@ -118,8 +119,8 @@ test('should close socket server and connected sockets before fastify close with
     assert.fail('Client unable to connect')
   })
 
-  await once(socket, 'connect')
-  const promise = once(socket, 'disconnect')
+  await once(socket as unknown as EventEmitter, 'connect')
+  const promise = once(socket as unknown as EventEmitter, 'disconnect')
   await app.close()
   await promise
   const [done] = await defer.promise

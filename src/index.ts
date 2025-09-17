@@ -3,13 +3,14 @@ import fp from 'fastify-plugin'
 import { Server, ServerOptions } from 'socket.io'
 
 export type FastifySocketioOptions = Partial<ServerOptions> & {
-  preClose?: (done: Function) => void
+  preClose?: (done: () => void) => void
 }
 
 const fastifySocketIO: FastifyPluginAsync<FastifySocketioOptions> = fp(
   async function (fastify, opts: FastifySocketioOptions) {
-    function defaultPreClose(done: Function) {
-      (fastify as any).io.local.disconnectSockets(true)
+    function defaultPreClose(done: () => void) {
+      // Disconnect all local sockets to allow graceful shutdown
+      (fastify as any).io.local.disconnectSockets(true) // 'as any' cast intentional per README (allows custom Socket.IO types)
       done()
     }
     fastify.decorate('io', new Server(fastify.server, opts))
@@ -19,9 +20,23 @@ const fastifySocketIO: FastifyPluginAsync<FastifySocketioOptions> = fp(
       }
       return defaultPreClose(done)
     })
-    fastify.addHook('onClose', (fastify: FastifyInstance, done) => {
-      (fastify as any).io.close()
-      done()
+    fastify.addHook('onClose', async (fastify: FastifyInstance) => {
+      const io = (fastify as any).io
+      try {
+        if (io.httpServer?.listening) {
+          await new Promise<void>((resolve, reject) => {
+            io.httpServer.on('close', resolve)
+            io.httpServer.on('error', reject)
+            io.close()
+          })
+        } else {
+          io.close()
+        }
+      } catch (error) {
+        // Log or handle shutdown errors if needed
+        console.error('Error during Socket.IO server shutdown:', error)
+        throw error // Re-throw to let Fastify handle it
+      }
     })
   },
   { fastify: '>=4.x.x', name: 'fastify-socket.io' },
