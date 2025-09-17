@@ -1,6 +1,6 @@
 {
   "name": "fastify-socket.io",
-  "version": "5.1.0",
+  "version": "5.1.1-beta.0",
   "private": false,
   "main": "dist/index.js",
   "scripts": {
@@ -20,30 +20,30 @@
     "url": "git+https://github.com/ducktors/fastify-socket.io.git"
   },
   "dependencies": {
-    "fastify-plugin": "^4.5.1",
-    "tslib": "^2.6.1"
+    "fastify-plugin": "^5.0.1",
+    "tslib": "^2.8.1"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^0.4.8",
-    "@changesets/cli": "^2.26.2",
-    "@ducktors/tsconfig": "^0.1.1",
-    "@types/node": "^16.18.39",
-    "c8": "^8.0.1",
-    "fastify": "^4.21.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.2.3",
-    "rome": "11.0.0",
-    "socket.io": "^4.7.4",
-    "socket.io-client": "^4.7.4",
-    "tsup": "^6.7.0",
-    "tsx": "^4.13.0",
-    "typescript": "^4.9.5"
+    "@changesets/changelog-github": "^0.5.1",
+    "@changesets/cli": "^2.29.7",
+    "@ducktors/tsconfig": "^1.0.0",
+    "@types/node": "^24.5.1",
+    "c8": "^10.1.3",
+    "fastify": "^5.6.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.6",
+    "rome": "12.1.3",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
+    "tsup": "^8.5.0",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
   },
   "files": [
     "dist"
   ],
   "peerDependencies": {
-    "fastify": "5.x.x",
+    "fastify": ">=4",
     "socket.io": ">=4"
   }
 }
