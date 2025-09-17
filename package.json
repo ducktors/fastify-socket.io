@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ducktors/fastify-socket.io.git"
+    "url": "git+https://github.com/yubarajshrestha/fastify-socket.io.git"
   },
   "dependencies": {
     "fastify-plugin": "^5.0.1",
