@@ -4,23 +4,19 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    open-pull-requests-limit: 0
+    open-pull-requests-limit: 10
     commit-message:
       prefix: "fix(deps)"
       prefix-development: "chore(deps):"
     assignees:
-      - "matteovivona"
-    reviewers:
-      - "matteovivona"
-      - "alemagio"
+      - "yubarajshrestha"
 
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "daily"
+    open-pull-requests-limit: 10
     commit-message:
       prefix: "chore(actions)"
     assignees:
-      - "matteovivona"
-    reviewers:
-      - "matteovivona"
+      - "yubarajshrestha"
