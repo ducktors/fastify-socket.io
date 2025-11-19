@@ -8,7 +8,6 @@
     "format": "biome format --write .",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
-    "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
     "prepublish": "pnpm build",
     "release": "pnpm build && changeset publish",
@@ -49,5 +48,9 @@
     "fastify": ">=4.0.0",
     "socket.io": ">=4"
   },
-  "packageManager": "pnpm@10.22.0"
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
 }
