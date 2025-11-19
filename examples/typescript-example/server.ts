@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import fastify from "fastify";
-import type { Server, Socket } from "socket.io";
+import type { Socket } from "socket.io";
 import socketioServer from "../../src";
 
 const app = fastify({ logger: true });
@@ -23,9 +23,3 @@ app.ready((err) => {
 });
 
 app.listen({ port: 3000 });
-
-declare module "fastify" {
-  interface FastifyInstance {
-    io: Server<{ hello: string }>;
-  }
-}
