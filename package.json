@@ -20,9 +20,10 @@
     "url": "git+https://github.com/ducktors/fastify-socket.io.git"
   },
   "dependencies": {
+    "@fastify/rate-limit": "^10.3.0",
     "fastify-plugin": "^4.5.1",
-    "tslib": "^2.6.1",
-    "@fastify/rate-limit": "^10.3.0"
+    "fastify-socket.io": "link:",
+    "tslib": "^2.6.1"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
@@ -36,7 +37,7 @@
     "lint-staged": "^13.2.3",
     "socket.io": "^4.7.4",
     "socket.io-client": "^4.7.4",
-    "tsup": "^6.7.0",
+    "tsup": "^8.3.5",
     "tsx": "^4.13.0",
     "typescript": "^4.9.5"
   },
