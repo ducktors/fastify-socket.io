@@ -37,7 +37,7 @@
     "rome": "11.0.0",
     "socket.io": "^4.7.4",
     "socket.io-client": "^4.7.4",
-    "tsup": "^6.7.0",
+    "tsup": "^8.3.5",
     "tsx": "^4.13.0",
     "typescript": "^4.9.5"
   },
