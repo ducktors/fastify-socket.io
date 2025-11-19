@@ -34,7 +34,6 @@
     "fastify": "^4.21.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
-    "rome": "11.0.0",
     "socket.io": "^4.7.4",
     "socket.io-client": "^4.7.4",
     "tsup": "^6.7.0",
@@ -48,5 +47,5 @@
     "fastify": ">=4.0.0",
     "socket.io": ">=4"
   },
-  "packageManager": "pnpm@10.12.4+sha512.5ea8b0deed94ed68691c9bad4c955492705c5eeb8a87ef86bc62c74a26b037b08ff9570f108b2e4dbd1dd1a9186fea925e527f141c648e85af45631074680184"
+  "packageManager": "pnpm@10.22.0"
 }
