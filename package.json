@@ -21,7 +21,8 @@
   },
   "dependencies": {
     "fastify-plugin": "^4.5.1",
-    "tslib": "^2.6.1"
+    "tslib": "^2.6.1",
+    "@fastify/rate-limit": "^10.3.0"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
