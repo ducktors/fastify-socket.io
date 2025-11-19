@@ -1,6 +1,4 @@
 {
   "extends": "@ducktors/tsconfig",
-  "include": [
-    "**/*.ts"
-  ]
+  "include": ["**/*.ts"]
 }

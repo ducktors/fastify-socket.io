@@ -5,8 +5,9 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc --noEmit && tsup-node",
-    "format": "rome format --write .",
-    "lint": "rome check .",
+    "format": "biome format --write .",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
     "prepublish": "pnpm build",
@@ -20,10 +21,13 @@
     "url": "git+https://github.com/ducktors/fastify-socket.io.git"
   },
   "dependencies": {
+    "@fastify/rate-limit": "^10.3.0",
     "fastify-plugin": "^4.5.1",
+    "fastify-socket.io": "link:",
     "tslib": "^2.6.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.2.0",
     "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "^2.26.2",
     "@ducktors/tsconfig": "^0.1.1",
@@ -32,7 +36,6 @@
     "fastify": "^4.21.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
-    "rome": "11.0.0",
     "socket.io": "^4.7.4",
     "socket.io-client": "^4.7.4",
     "tsup": "^8.3.5",
@@ -46,10 +49,5 @@
     "fastify": ">=4.0.0",
     "socket.io": ">=4"
   },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild",
-      "rome"
-    ]
-  }
+  "packageManager": "pnpm@10.22.0"
 }
